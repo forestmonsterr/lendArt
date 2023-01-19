@@ -10,10 +10,10 @@
         <div class="header_logo"><p>Landing page</p></div>
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="#">Обо мне</a>
-                <a href="#">Мои навыки</a>
-                <a href="#">Портфолио</a>
-                <a href="#">Контакты</a>
+                <a href="#about">Обо мне</a>
+                <a href="#skills">Мои навыки</a>
+                <a href="#portfolio">Портфолио</a>
+                <a href="#contacts">Контакты</a>
                 <a href="#" id="menu" class="icon">&#9776;</a>
             </div>
         </nav>
@@ -24,6 +24,7 @@
             <h1>Привет!</h1>
             <p>Меня зовут Диана Зверева и я программист</p>
         </div>
+        <a name="about"></a>
         <div class="wrapper">
             <div class="main__about">
                 <div class="about__left">
@@ -42,6 +43,7 @@
                 </div>
             </div>
         </div>
+        <a name="skills"></a>
         <div class="skills"><h1>Мои навыки</h1>
             <div class="main__skills">
                 <div class="skills__left">
@@ -62,6 +64,7 @@
                 </div>
             </div>
         </div>
+        <a name="portfolio"></a>
         <div class="portfolio"><h1>Портфолио</h1>
             <div class="main__portfolio">
                 <div class="portfolio__left">
@@ -76,25 +79,27 @@
                 </div>
             </div>
         </div>
+        <a name="contacts"></a>
         <div class="contacts"><h1>Контакты</h1>
             <div class="main__contacts">
                 <p>Социальный сети:</p>
                 <a href="https://t.me/jjvjwj"><img src="img/tg.png" alt="tg"></a>
                 <a href="https://vk.com/id377010771"><img src="img/vk.png" alt="vk"></a>
             </div>
-            <div class="form">
+            <button class="open" onClick="$('#feedback_form').show();">Обратная связь</button>
+            <div style="display:none;" id="feedback_form">
                 <form>
-
-                    <!-- Hidden Required Fields -->
-                    <input type="hidden" name="project_name" value="Site Name">
                     <input type="hidden" name="admin_email" value="alaskayoungmeow@gmail.com">
                     <input type="hidden" name="form_subject" value="Form Subject">
-                    <!-- END Hidden Required Fields -->
 
-                    <input type="text" name="Name" placeholder="You name..." required><br>
-                    <input type="text" name="E-mail" placeholder="You E-mail..." required><br>
-                    <input type="text" name="Phone" placeholder="You phone..."><br>
-                    <button>Send</button>
+                    <input type="hidden" name="project_name" value="Site Name">
+                    <input type="text" name="Name" placeholder="Введите свое имя" required><br>
+                    <input type="text" name="E-mail" placeholder="Введите email" required><br>
+
+                    <input type="text" name="Phone" placeholder="Введите номер телефона"><br>
+
+                    <button class="send">Отправить</button>
+                    <button class="close" onClick="$('#feedback_form').hide();">Закрыть</button>
 
                 </form>
             </div>
