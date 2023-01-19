@@ -8,7 +8,7 @@ $(document).ready(function() {
             url: "./feedback.php", //Change
             data: th.serialize()
         }).done(function() {
-            alert("Thank you!");
+            alert("Сообщение отправлено!");
             setTimeout(function() {
                 // Done Functions
                 th.trigger("reset");
