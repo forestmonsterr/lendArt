@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Landing page</title>
     <link rel="stylesheet" href="style\style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -83,9 +82,27 @@
                 <a href="https://t.me/jjvjwj"><img src="img/tg.png" alt="tg"></a>
                 <a href="https://vk.com/id377010771"><img src="img/vk.png" alt="vk"></a>
             </div>
+            <div class="form">
+                <form>
+
+                    <!-- Hidden Required Fields -->
+                    <input type="hidden" name="project_name" value="Site Name">
+                    <input type="hidden" name="admin_email" value="alaskayoungmeow@gmail.com">
+                    <input type="hidden" name="form_subject" value="Form Subject">
+                    <!-- END Hidden Required Fields -->
+
+                    <input type="text" name="Name" placeholder="You name..." required><br>
+                    <input type="text" name="E-mail" placeholder="You E-mail..." required><br>
+                    <input type="text" name="Phone" placeholder="You phone..."><br>
+                    <button>Send</button>
+
+                </form>
+            </div>
         </div>
     </main>
 
     <script src="scripts\script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="scripts\feedback.js"></script>
 </body>
 </html>
