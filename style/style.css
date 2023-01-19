@@ -158,6 +158,57 @@ main .main__about{
      font-weight: bold;
  }
 
+.portfolio{
+    background: #fff;
+    color: #000;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 0 100px 0;
+}
+.portfolio h1{
+    margin-left: 850px;
+    display: inline-block;
+    border-bottom: 3px solid #000;
+    padding-bottom: 10px;
+    font-size: 70px;
+}
+.main__portfolio {
+    display: flex;
+}
+
+.portfolio__right{
+    margin-left: 375px;
+    padding: 100px 0 100px 0;
+}
+.portfolio__left{
+    margin-left: 275px;
+    padding: 100px 0 100px 0;
+}
+.portfolio__right p{
+    font-size: 40px;
+    margin: 30px 0 50px 0;
+    color: #000;
+    font-weight: bold;
+}
+.portfolio__left p{
+    font-size: 40px;
+    margin: 30px 0 50px 0;
+    color: #000;
+    font-weight: bold;
+}
+.portfolio__right li{
+    font-size: 20px;
+    margin: 10px 0 10px 0;
+    color: #000;
+    font-weight: bold;
+}
+.portfolio__left li{
+    font-size: 20px;
+    margin: 10px 0 10px 0;
+    color: #000;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 1200px) {
     nav{
         margin-left: 20%;
@@ -245,6 +296,21 @@ main .main__about{
     }
     .skills__left li{
         text-align: left;
+    }
+    .portfolio h1{
+        text-align: center;
+        margin-left: 0;
+    }
+    .main__portfolio{
+        flex-direction: column;
+    }
+    .portfolio__right{
+        text-align: center;
+        margin-left: 0;
+    }
+    .portfolio__left{
+        text-align: center;
+        margin-left: 0;
     }
 
 }
