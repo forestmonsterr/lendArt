@@ -5,7 +5,7 @@ $(document).ready(function() {
         var th = $(this);
         $.ajax({
             type: "POST",
-            url: "./feedback.php", //Change
+            url: "./php/feedback.php", //Change
             data: th.serialize()
         }).done(function() {
             alert("Сообщение отправлено!");
