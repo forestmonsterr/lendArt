@@ -1,52 +1,42 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['name'])) {$name = $_POST['name'];}
+    if (isset($_POST['phone'])) {$phone = $_POST['phone'];}
+    if (isset($_POST['email'])) {$email = $_POST['email'];}
 
-$method = $_SERVER['REQUEST_METHOD'];
 
-//Script Foreach
-$c = true;
-if ( $method === 'POST' ) {
+    // if (isset($_POST['email'])) {$email = $_POST['email'];}
+    if (isset($_POST['formData'])) {$formData = $_POST['formData'];}
 
-    $project_name = trim($_POST["project_name"]);
-    $admin_email  = trim($_POST["admin_email"]);
-    $form_subject = trim($_POST["form_subject"]);
-
-    foreach ( $_POST as $key => $value ) {
-        if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-            $message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-        }
+    $to = "alaskayoungmeow@gmail.com"; /*Укажите адрес, га который должно приходить письмо*/
+    $sendfrom   = "support@sitename.ru"; /*Укажите адрес, с которого будет приходить письмо, можно не настоящий, нужно для формирования заголовка письма*/
+    $headers  = "From: " . strip_tags($sendfrom) . "\r\n";
+    $headers .= "Reply-To: ". strip_tags($sendfrom) . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
+    $subject = "$formData";
+    $message = "$formData
+ <b>Имя пославшего:</b> $name
+<b>Телефон:</b> $phone
+<b>Почта:</b> $email";
+    $send = mail ($to, $subject, $message, $headers);
+    if ($send == 'true')
+    {
+        echo '<center>
+ 
+Спасибо за отправку вашего сообщения!
+ 
+</center>';
     }
-} else if ( $method === 'GET' ) {
-
-    $project_name = trim($_GET["project_name"]);
-    $admin_email  = trim($_GET["admin_email"]);
-    $form_subject = trim($_GET["form_subject"]);
-
-    foreach ( $_GET as $key => $value ) {
-        if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-            $message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-        }
+    else
+    {
+        echo '<center>
+ 
+<b>Ошибка. Сообщение не отправлено!</b>
+ 
+</center>';
     }
-}
-
-$message = "<table style='width: 100%;'>$message</table>";
-
-function adopt($text) {
-    return '=?UTF-8?B?'.Base64_encode($text).'?=';
-}
-
-$headers = "MIME-Version: 1.0" . PHP_EOL .
-    "Content-Type: text/html; charset=utf-8" . PHP_EOL .
-    'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
-    'Reply-To: '.$admin_email.'' . PHP_EOL;
-
-mail($admin_email, adopt($form_subject), $message, $headers );
+} else {
+    http_response_code(403);
+    echo "Попробуйте еще раз";
+}?>
