@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Landing page</title>
     <link rel="stylesheet" href="style\style.css">
+    <link rel="stylesheet" href="style/remodal.css">
+    <link rel="stylesheet" href="style/remodal-default-theme.css">
 </head>
 <body>
     <header>
@@ -85,23 +87,36 @@
                 <p>Социальный сети:</p>
                 <a href="https://t.me/jjvjwj"><img src="img/tg.png" alt="tg"></a>
                 <a href="https://vk.com/id377010771"><img src="img/vk.png" alt="vk"></a>
-                <form>
-                    <input type="hidden" name="project_name" value="Site Name">
-                    <input type="hidden" name="admin_email" value="alaskayoungmeow@gmail.com">
-                    <input type="hidden" name="form_subject" value="Form Subject">
 
-                    <input type="text" name="Name" placeholder="Введите свое имя" required><br>
-                    <input type="text" name="E-mail" placeholder="Введите email" required><br>
+                <a href="#modal"><img src="img/feedback.png" alt="feedback"></a>
+                <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
 
-                    <input type="text" name="Phone" placeholder="Введите номер телефона"><br>
+                    <div class="remodalBorder">
 
-                    <button>Отправить</button>
 
-                </form>
+                        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+
+                        <form id="form">
+
+                            <h2 id="modal1Title">Оставьте ваши контактные данные и я свяжусь с вами</h2>
+
+                            <input type="text" class="putName" name="name" placeholder="Введите ваше имя" required>
+                            <input type="text" class="emailName" name="email" placeholder="Введите ваш email" required>
+                            <input name="phone" type="tel" class="putPhone" placeholder="Введите номер телефона" required>
+                            <input type="submit" name="submit" class="btn" value="ОТПРАВИТЬ">
+                            <input type="hidden" name="formData" value="Заявка с сайта">
+
+                        </form>
+
+                    </div>
+
+                </div>
     </main>
 
     <script src="scripts\script.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="scripts\feedback.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="scripts/remodal.min.js"></script>
+    <script src="scripts/remodal.js"></script>
 </body>
 </html>
